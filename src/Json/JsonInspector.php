@@ -3,7 +3,6 @@
 namespace Sanpi\Behatch\Json;
 
 use JsonSchema\RefResolver;
-use JsonSchema\Uri\UriResolver;
 use JsonSchema\Validator;
 use JsonSchema\Uri\UriRetriever;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
