@@ -2,19 +2,22 @@
 
 namespace Sanpi\Behatch\Tests\Units\Json;
 
+use JsonSchema\Uri\UriResolver;
+use JsonSchema\Uri\UriRetriever;
+
 class JsonSchema extends \atoum
 {
     public function test_resolve_without_uri()
     {
         $schema = $this->newTestedInstance('{}');
-        $resolver = new \JsonSchema\RefResolver();
+        $resolver = new \JsonSchema\RefResolver(new UriRetriever(), new UriResolver());
         $schema->resolve($resolver);
     }
 
     public function test_resolve_with_uri()
     {
         $schema = $this->newTestedInstance('{}', 'file://test');
-        $resolver = new \JsonSchema\RefResolver();
+        $resolver = new \JsonSchema\RefResolver(new UriRetriever(), new UriResolver());
         $result = $schema->resolve($resolver);
 
         $this->object($result)

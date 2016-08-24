@@ -18,6 +18,11 @@ class Json
         return $this->content;
     }
 
+    public function setContent($content)
+    {
+        $this->content = $content;
+    }
+
     public function read($expression, PropertyAccessor $accessor)
     {
         if (is_array($this->content)) {
