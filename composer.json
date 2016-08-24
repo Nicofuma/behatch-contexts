@@ -1,6 +1,6 @@
 {
-    "name": "behatch/contexts",
-    "description": "Behatch contexts",
+    "name": "nicofuma/behatch-contexts",
+    "description": "Behatch contexts fork (jsonschema 2 and 3)",
     "keywords": ["BDD", "Behat", "Symfony2", "Context"],
     "type": "library",
     "license": "beerware",
@@ -9,12 +9,11 @@
         "php": ">=5.4",
         "behat/behat": "~3.0",
         "behat/mink-extension": "~2.0",
-        "justinrainbow/json-schema": "~1.4",
+        "justinrainbow/json-schema": "~1.4|~2.0",
         "symfony/property-access": "~2.3|~3.0"
     },
 
     "require-dev": {
-        "kherge/box": "~2.0",
         "behat/mink-goutte-driver": "~1.1",
         "behat/mink-selenium2-driver": "~1.2",
         "atoum/atoum": "dev-master"
@@ -31,6 +30,7 @@
     },
 
     "replace": {
-        "sanpi/behatch-contexts": "self.version"
+        "sanpi/behatch-contexts": "self.version",
+        "behatch/contexts": "self.version"
     }
 }
