@@ -7,10 +7,11 @@ cache:
     - $HOME/.composer/cache
 
 php:
-    - 5.4
-    - 5.5
-    - 5.6
-    - 7.0
+    - '5.6'
+    - '7.0'
+    - '7.1'
+    - '7.2'
+    - '7.3'
     - nightly
     - hhvm
     - hhvm-nightly
@@ -26,8 +27,9 @@ before_script:
     - export DISPLAY=:99.0
     - Xvfb $DISPLAY -extension RANDR &> /dev/null &
 
-    - curl http://selenium-release.storage.googleapis.com/2.52/selenium-server-standalone-2.52.0.jar > selenium.jar
+    - curl http://selenium-release.storage.googleapis.com/3.9/selenium-server-standalone-3.9.1.jar > selenium.jar
     - java -jar selenium.jar &> /dev/null &
+    - sleep 5
 
     - php -S localhost:8080 -t tests/fixtures/www &> /dev/null &
     - cp behat.yml{.dist,}
