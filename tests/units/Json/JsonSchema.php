@@ -11,12 +11,15 @@ class JsonSchema extends \atoum
     {
         $schema = $this->newTestedInstance('{}');
         $resolver = new \JsonSchema\RefResolver(new UriRetriever(), new UriResolver());
-        $schema->resolve($resolver);
+        $result = $schema->resolve($resolver);
+
+        $this->object($result)
+            ->isIdenticalTo($schema);
     }
 
     public function test_resolve_with_uri()
     {
-        $schema = $this->newTestedInstance('{}', 'file://test');
+        $schema = $this->newTestedInstance('{}', sprintf('file://%s/fixtures/files/test.txt', __DIR__.'/../../'));
         $resolver = new \JsonSchema\RefResolver(new UriRetriever(), new UriResolver());
         $result = $schema->resolve($resolver);
 
